@@ -1,0 +1,42 @@
+﻿@model List<UserProduct>;
+
+@{
+    ViewData["title"] = "Product";
+}
+
+
+<h1>Add new product: </h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" aria-describedby="name" name="name">
+        @*<small id="name" class="form-text text-muted">We'll never share your email with anyone else.</small>*@
+    </div>
+    <div class="form-group">
+        <label for="sortDesc">Short Description</label>
+        <input type="text" class="form-control" id="sortDesc" name="ShortDescription">
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+<br />
+
+<table class="table">
+    
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+    </tr>
+
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.ShortDescription</td>
+        </tr>
+    }
+
+</table>
